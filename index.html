@@ -72,22 +72,12 @@
 
             <br>
 
-            <!-- <ul class="todo__list" v-for="(item,index) in filter" v-show="show">
-              <li class="todo">
-                <label class="todo__title">
-                  <input class="todo__check" type="checkbox" v-model="item.status">
-                  <h3>{{item.title}}</h3>
-                </label>
-                <button class="btn-delete" @click="del(item)">delete</button>
-              </li>
-            </ul> -->
-
             <div class="form-check" v-for="(item,index) in filter" v-show="show">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" v-model="item.status">
                 <label class="form-check-label" for="flexCheckDefault">
                     {{item.title}}
                 </label>
-                <button class="filter_btn btn btn-danger" @click="show = 'all'">刪除</button>
+                <button class="filter_btn btn btn-danger" @click="del(item)">刪除</button>
             </div>
             
         </div>
