@@ -40,12 +40,15 @@
         margin: 16px;
     }
     .add_list{
-        width: 20vw;
+        width: 16vw;
         margin: auto;
     }
     .form-check{
-        width: 8vw;
+        width: 16vw;
         margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content:space-around
     }
 </style>
 <body>
@@ -84,6 +87,7 @@
                 <label class="form-check-label" for="flexCheckDefault">
                     {{item.title}}
                 </label>
+                <button class="filter_btn btn btn-danger" @click="show = 'all'">刪除</button>
             </div>
             
         </div>
