@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #app{
+        border: solid 3px;
+    }
+    .wrapper{
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    input{
+        list-style: none;
+    }
+    .todo{
+        display: flex;
+        margin-bottom: 16px;
+        justify-content: center;
+    }
+    .todo__title{
+        display: flex;
+        align-items: center;
+        width: 200px;
+    }
+    .btn-delete{
+        margin-left: 16px;
+    }
+    .filter{
+        margin-top: 16px;
+    }
+    .filter_btn{
+        margin: 10;
+    }
+</style>
+<body>
+    <div id="app">
+        <div class="wrapper">
+
+            <h1>備忘事項</h1>
+            <div class="todo__input-block">
+              <input class="todo__input" type="text" placeholder="新增備住" minlength="1" maxlength="48" v-model="inputText">
+              <button class="btn-new" @click="add()">新增</button>
+            </div>
+            
+            <div class="todo__hr"></div>
+
+            <div class="filter">
+                <button class="filter_btn" @click="show = 'no'">未完成</button> 
+                <button class="filter_btn" @click="show = 'yes'">已完成</button> 
+                <button class="filter_btn" @click="show = 'all'">全部</button>
+            </div>
+
+            <ul class="todo__list" v-for="(item,index) in filter" v-show="show">
+              <li class="todo">
+                <label class="todo__title">
+                  <input class="todo__check" type="checkbox" v-model="item.status">
+                  <p>{{item.title}}</p>
+                </label>
+                <button class="btn-delete" @click="del(item)">delete</button>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script> 
+    <script src="main.js"></script>
+</body>
+</html>
